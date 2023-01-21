@@ -2,22 +2,22 @@
 
 namespace Core\Shared\Domain\ValueObjects;
 
-abstract class StringValueObject
+abstract class FloatValueObject
 {
-    private string $value;
+    private float $value;
 
-    public function __construct(string $value)
+    public function __construct(float $value)
     {
         $this->value = $value;
     }
 
-    public function value(): string
+    public function value(): float
     {
         return $this->value;
     }
 
     public function __toString(): string
     {
-        return $this->value;
+        return (string) $this->value;
     }
 }
