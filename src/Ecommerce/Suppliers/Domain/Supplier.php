@@ -2,7 +2,9 @@
 
 namespace Core\Ecommerce\Suppliers\Domain;
 
-class Supplier
+use Core\Ecommerce\Shared\Domain\SupplierId;
+
+final class Supplier
 {
     private SupplierId $id;
     private SupplierName $name;

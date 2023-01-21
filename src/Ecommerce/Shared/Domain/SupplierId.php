@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Ecommerce\Suppliers\Domain;
+namespace Core\Ecommerce\Shared\Domain;
 
 use Core\Shared\Domain\ValueObjects\UuidValueObject;
 

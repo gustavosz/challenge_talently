@@ -4,6 +4,6 @@ namespace Core\Ecommerce\Suppliers\Domain;
 
 use Core\Shared\Domain\ValueObjects\StringValueObject;
 
-class SupplierName extends StringValueObject
+final class SupplierName extends StringValueObject
 {
 }
