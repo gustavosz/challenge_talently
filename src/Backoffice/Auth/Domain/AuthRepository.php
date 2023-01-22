@@ -9,4 +9,6 @@ interface AuthRepository
     public function authenticate(AuthUser $auth): AuthToken;
 
     public function searchByEmail(AuthEmail $email): ?AuthUser;
+
+    public function sendWelcomeEmail(AuthUser $auth): void;
 }

@@ -8,6 +8,9 @@ use Core\Backoffice\Auth\Domain\AuthPassword;
 use Core\Backoffice\Auth\Domain\AuthRepository;
 use Core\Backoffice\Auth\Domain\AuthToken;
 use Core\Backoffice\Auth\Domain\AuthUser;
+use Core\Backoffice\Auth\Infrastructure\Mails\WelcomeEmail;
+use Illuminate\Mail\Message;
+use Illuminate\Support\Facades\Mail;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthUserEloquentRepository implements AuthRepository
@@ -62,5 +65,16 @@ class AuthUserEloquentRepository implements AuthRepository
             new AuthEmail($model->email),
             new AuthPassword($model->password),
         );
+    }
+
+    public function sendWelcomeEmail(AuthUser $auth): void
+    {
+        $text = "Welcome {$auth->email()->value()}";
+
+        Mail::raw($text, static function (Message $message) use ($auth) {
+            $message->to($auth->email()->value())
+                ->from('hello@talently.com')
+                ->subject('User created - Talently');
+        });
     }
 }
