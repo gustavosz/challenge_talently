@@ -8,7 +8,8 @@ use Core\Backoffice\Auth\Domain\AuthPassword;
 use Core\Backoffice\Auth\Domain\AuthRepository;
 use Core\Backoffice\Auth\Domain\AuthToken;
 use Core\Backoffice\Auth\Domain\AuthUser;
-use Core\Backoffice\Auth\Infrastructure\Mails\WelcomeEmail;
+use Core\Ecommerce\Shared\Domain\SupplierId;
+use Core\Ecommerce\Suppliers\Infrastructure\Persistence\Eloquent\SupplierEloquentModel;
 use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Mail;
 use Tymon\JWTAuth\Facades\JWTAuth;
@@ -76,5 +77,12 @@ class AuthUserEloquentRepository implements AuthRepository
                 ->from('hello@talently.com')
                 ->subject('User created - Talently');
         });
+    }
+
+    public function assignSupplier(AuthUser $user, SupplierId $supplierId): void
+    {
+        $model = AuthUserEloquentModel::find($user->id()->value());
+
+        $model->suppliers()->attach($supplierId->value(), ['is_default' => true]);
     }
 }

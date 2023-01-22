@@ -2,7 +2,7 @@
 
 namespace Core\Backoffice\Auth\Infrastructure\Persistence\Eloquent;
 
-use Core\Ecommerce\Suppliers\Domain\Supplier;
+use Core\Ecommerce\Suppliers\Infrastructure\Persistence\Eloquent\SupplierEloquentModel;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
@@ -28,9 +28,9 @@ class AuthUserEloquentModel extends Authenticatable implements JWTSubject
         return AuthUserEloquentFactory::new();
     }
 
-    public function supplier(): BelongsToMany
+    public function suppliers(): BelongsToMany
     {
-        return $this->belongsToMany(Supplier::class, 'supplier_user', 'user_id', 'supplier_id')
+        return $this->belongsToMany(SupplierEloquentModel::class, 'supplier_user', 'user_id', 'supplier_id')
             ->withPivot('is_default');
     }
 

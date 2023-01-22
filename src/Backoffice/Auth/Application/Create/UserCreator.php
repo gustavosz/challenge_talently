@@ -3,6 +3,7 @@
 namespace Core\Backoffice\Auth\Application\Create;
 
 
+use Core\Backoffice\Auth\Application\AssignSupplier\UserSupplierAsignator;
 use Core\Backoffice\Auth\Domain\AuthEmail;
 use Core\Backoffice\Auth\Domain\AuthId;
 use Core\Backoffice\Auth\Domain\AuthPassword;
@@ -27,6 +28,10 @@ class UserCreator
         $this->repository->save($auth);
 
         $this->repository->sendWelcomeEmail($auth);
+
+        $supplierAsignator = new UserSupplierAsignator($this->repository);
+
+        $supplierAsignator->__invoke($auth);
 
         return $auth;
     }

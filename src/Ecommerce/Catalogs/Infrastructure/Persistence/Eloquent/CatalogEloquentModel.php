@@ -2,10 +2,13 @@
 
 namespace Core\Ecommerce\Catalogs\Infrastructure\Persistence\Eloquent;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class CatalogEloquentModel extends Model
 {
+    use HasFactory;
+
     protected $table = 'catalogs';
     protected $keyType = 'string';
     protected $fillable = [
