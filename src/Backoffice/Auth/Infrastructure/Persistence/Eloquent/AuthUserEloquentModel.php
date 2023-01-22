@@ -3,10 +3,11 @@
 namespace Core\Backoffice\Auth\Infrastructure\Persistence\Eloquent;
 
 use Core\Ecommerce\Suppliers\Domain\Supplier;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class AuthUserEloquentModel extends Model
+class AuthUserEloquentModel extends Authenticatable implements JWTSubject
 {
     protected $table = 'users';
     protected $keyType = 'string';
@@ -18,7 +19,6 @@ class AuthUserEloquentModel extends Model
     protected $casts = [
         'id' => 'string',
         'email' => 'string',
-        'password' => 'string'
     ];
     public $incrementing = false;
     public $timestamps = false;
@@ -32,5 +32,15 @@ class AuthUserEloquentModel extends Model
     {
         return $this->belongsToMany(Supplier::class, 'supplier_user', 'user_id', 'supplier_id')
             ->withPivot('is_default');
+    }
+
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims(): array
+    {
+        return [];
     }
 }

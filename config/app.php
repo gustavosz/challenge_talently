@@ -199,7 +199,10 @@ return [
          * Custom Service Providers...
          */
         Apps\Ecommerce\backend\providers\MigrationServiceProvider::class,
-
+        Apps\Ecommerce\backend\providers\RouteServiceProvider::class,
+        Apps\Ecommerce\backend\providers\CommandBusServiceProvider::class,
+        Apps\Ecommerce\backend\providers\AuthUserServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
     ],
 
     /*

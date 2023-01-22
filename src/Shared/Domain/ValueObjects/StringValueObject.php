@@ -20,4 +20,9 @@ abstract class StringValueObject
     {
         return $this->value;
     }
+
+    public function setValue($value): void
+    {
+        $this->value = $value;
+    }
 }

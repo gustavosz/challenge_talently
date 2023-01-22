@@ -6,8 +6,8 @@ use Core\Shared\Domain\ValueObjects\StringValueObject;
 
 final class AuthPassword extends StringValueObject
 {
-    public function isEquals(AuthPassword $other): bool
+    public function hashPassword(): void
     {
-        return $this->value() === $other->value();
+        $this->setValue(bcrypt($this->value()));
     }
 }
