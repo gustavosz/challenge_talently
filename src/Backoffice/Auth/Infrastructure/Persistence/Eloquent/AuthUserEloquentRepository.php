@@ -9,7 +9,6 @@ use Core\Backoffice\Auth\Domain\AuthRepository;
 use Core\Backoffice\Auth\Domain\AuthToken;
 use Core\Backoffice\Auth\Domain\AuthUser;
 use Core\Ecommerce\Shared\Domain\SupplierId;
-use Core\Ecommerce\Suppliers\Infrastructure\Persistence\Eloquent\SupplierEloquentModel;
 use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Mail;
 use Tymon\JWTAuth\Facades\JWTAuth;

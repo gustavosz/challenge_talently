@@ -203,6 +203,7 @@ return [
         Apps\Ecommerce\backend\providers\CommandBusServiceProvider::class,
         Apps\Ecommerce\backend\providers\AuthUserServiceProvider::class,
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+        Apps\Ecommerce\backend\providers\UserServiceProvider::class,
     ],
 
     /*

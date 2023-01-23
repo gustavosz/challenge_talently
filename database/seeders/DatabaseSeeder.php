@@ -29,9 +29,7 @@ class DatabaseSeeder extends Seeder
             ->count(3)
             ->create();
 
-        // Supplier without catalog
-        SupplierEloquentModel::factory()
-            ->count(3)
-            ->create();
+        // Catalog without supplier
+        CatalogEloquentModel::factory()->count(2)->create();
     }
 }
