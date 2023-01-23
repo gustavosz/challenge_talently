@@ -3,12 +3,15 @@
 namespace Core\Backoffice\Auth\Infrastructure\Persistence\Eloquent;
 
 use Core\Ecommerce\Suppliers\Infrastructure\Persistence\Eloquent\SupplierEloquentModel;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class AuthUserEloquentModel extends Authenticatable implements JWTSubject
 {
+    use HasFactory;
+
     protected $table = 'users';
     protected $keyType = 'string';
     protected $fillable = [
