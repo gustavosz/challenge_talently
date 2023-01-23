@@ -13,8 +13,8 @@ class UserCatalogFinder
         $this->repository = $repository;
     }
 
-    public function __invoke(): array
+    public function __invoke(array|null $filter): array
     {
-        return $this->repository->listCatalogs();
+        return $this->repository->listCatalogs($filter);
     }
 }

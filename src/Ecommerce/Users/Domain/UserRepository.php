@@ -4,5 +4,5 @@ namespace Core\Ecommerce\Users\Domain;
 
 interface UserRepository
 {
-    public function listCatalogs(): array;
+    public function listCatalogs(array|null $filter): array;
 }

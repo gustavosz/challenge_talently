@@ -13,7 +13,7 @@ class FindCatalogCommandHandler
 
     public function __invoke(FindCatalogCommand $command): void
     {
-        $catalogs = $this->finder->__invoke();
+        $catalogs = $this->finder->__invoke($command->filter());
 
         $command->setCatalogs($catalogs);
     }

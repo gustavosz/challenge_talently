@@ -17,9 +17,11 @@ class UserCatalogsGetController
         $this->bus = $bus;
     }
 
-    public function __invoke($id, Request $request): JsonResponse
+    public function __invoke(Request $request): JsonResponse
     {
-        $command = new FindCatalogCommand();
+        $filter = $request->get('filter');
+
+        $command = new FindCatalogCommand($filter);
 
         $this->bus->dispatch($command);
 

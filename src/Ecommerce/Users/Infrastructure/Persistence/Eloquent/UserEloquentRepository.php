@@ -7,7 +7,7 @@ use Core\Ecommerce\Users\Domain\UserRepository;
 
 class UserEloquentRepository implements UserRepository
 {
-    public function listCatalogs(): array
+    public function listCatalogs($filter): array
     {
         $user = auth()->user();
 
@@ -15,10 +15,15 @@ class UserEloquentRepository implements UserRepository
 
         $modelCatalogs = CatalogEloquentModel::query()
             ->select(['id', 'name', 'price'])
-            ->whereHas('supplier', function ($query) use ($supplierDefault) {
-                $query->where('supplier_id', $supplierDefault->id);
+            ->where(function ($query) use ($supplierDefault) {
+                $query->whereHas('supplier', function ($query) use ($supplierDefault) {
+                    $query->where('supplier_id', $supplierDefault->id);
+                })
+                ->orWhereNull('supplier_id');
             })
-            ->orWhereNull('supplier_id')
+            ->when($filter && isset($filter['name']), function ($query) use ($filter) {
+                $query->where('name', 'like', '%' . $filter['name'] . '%');
+            })
             ->get();
 
         return $modelCatalogs->toArray();
