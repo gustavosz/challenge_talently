@@ -16,6 +16,11 @@ class UuidValueObject
         $this->ensureIsValidUuid($value);
     }
 
+    public static function random(): self
+    {
+        return new self(Uuid::uuid4()->toString());
+    }
+
     public function value(): string
     {
         return $this->value;

@@ -2,6 +2,7 @@
 
 namespace Core\Ecommerce\Suppliers\Infrastructure\Persistence\Eloquent;
 
+use Core\Ecommerce\Catalogs\Infrastructure\Persistence\Eloquent\CatalogEloquentModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -29,5 +30,10 @@ class SupplierEloquentModel extends Model
     protected static function newFactory(): SupplierEloquentFactory
     {
         return SupplierEloquentFactory::new();
+    }
+
+    public function catalogs()
+    {
+        return $this->hasMany(CatalogEloquentModel::class, 'supplier_id', 'id');
     }
 }

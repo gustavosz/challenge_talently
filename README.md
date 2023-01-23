@@ -1,66 +1,85 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Backend Developer
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este reto está diseñado para verificar tu código y habilidades de resolución de problemas.
+Te sugerimos usar un maximo de 5 a 6 horas en el.
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Instrucciones (linux)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+#### Para iniciar el projecto
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+#### Step 1
+copiar o renombrar el .env.example a .env
+```
+cp .env.example .env
+```
 
-## Learning Laravel
+#### Step 2 ejecutar
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```
+./start
+```
+#### Para detener el projecto
+```
+./down
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Requisitos
 
-## Laravel Sponsors
+Catalogo de usuarios
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+#### Modulo de autentificación de clientes
 
-### Premium Partners
+- Cuando el cliente ingrese un email <b>incorrecto</b> debe responder un mensaje de error
+- Cuando el cliente ingrese las credenciales <b>correctas</b> debe generar un token que se usara en futuras peticiones
+- Cuando el cliente no exista, un nuevo cliente debe ser creado automaticamente (registro automatico) y generar un token que se usara en futuras peticiones
+- Cuando se cree un cliente se le debe enviar un correo de "bienvenido"
+- Cuando se cree un cliente nuevo, un supplier(tabla suppliers) es asignado automáticamente
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+#### Modulo de catalogo
 
-## Contributing
+- El cliente puede hacer búsqueda de productos usando algún criterio(busqueda por texto)
+- El cliente puede listar los productos(tabla catalogs) de su proveedor y aquellos que no tengan un proveedor asignado
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Entregables
 
-## Security Vulnerabilities
+1. Usa rest para crear tu api
+2. Eres libre de usar cualquier motor de base de datos de tu preferencia siempre que puedas dockerizar el proyecto
+3. Usa git, puedes usar las ramas que desees y hacer cuantos commit necesites, pero deja los ultimos cambios en rama principal(main o master)
+4. Eres libre de no usar esta plantilla para resolver tu reto, pero conserva este readme en tu nuevo proyecto y dockerizalo y agrega instruciones para levantarlo
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Expectativa del reto
+- Domain drive design (usa los conceptos de ddd, aggregates, value objects, domain services, etc)
+- Será indispensable el uso de los principios S.O.L.I.D.
+- Organización de código
+- Manejo de errores
+- Escribe y organiza tus Test
+- La limpieza y legibilidad del código será considerada.
+- La eficiencia del código en cuestiones de rendimiento sumarán para esta prueba.
+- Al finalizar el reto, enviar el enlace de <b>GitHub</b> de la solución a emmanuel.barturen@talently.tech
+  con copia a paula.anselmo@talently.tech con título "Reto Talently Backend"
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+#### Nota:
+El UI no es necesaria
+
+## Resolución:
+
+#### Prerequisitos:
+* Laravel 9
+* MySQL 8
+* Php 8.0
+
+#### Instalación:
+* Clonar el repositorio
+* Copiar el archivo .env.example a .env
+* Ejecutar el comando `composer install`
+* Con Docket:
+    * Levantar contenedores `./vendor/bin/sail up -d`
+    * Correr migraciones y seeder `./vendor/bin/sail artisan migrate:fresh --seed`
+    * Generar key del proyecto `./vendor/bin/sail artisan key:generate`
+    * Generar jwt key secret `./vendor/bin/sail artisan jwt:secret`
+    * Correr tests `./vendor/bin/sail artisan test`
